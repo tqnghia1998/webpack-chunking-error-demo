@@ -1,0 +1,21 @@
+{
+  "name": "@shopee/webpack-issue",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Nghia <quangnghia.trinh@shopee.com>",
+  "license": "none",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.5",
+    "wsrun": "^5.2.4"
+  },
+  "scripts": {
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && concurrently \"wsrun --parallel start\"",
+    "start:live": "concurrently \"wsrun --parallel start:live\"",
+    "clean": "rimraf -fr apps/**/dist",
+    "wipe": "rimraf -fr node_modules apps/**/node_modules yarn.lock apps/**/yarn.lock apps/**/dist"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
